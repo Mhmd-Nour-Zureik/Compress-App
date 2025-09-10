@@ -1,0 +1,71 @@
+﻿<Window
+    x:Class="Compresion_RAR.Views.CompressedItemsListBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Compresion_RAR.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Select Item from Archive"
+    Width="600"
+    Height="400"
+    FontFamily="Segoe UI"
+    FontSize="14"
+    ResizeMode="CanResizeWithGrip"
+    WindowStartupLocation="CenterOwner"
+    WindowStyle="SingleBorderWindow"
+    mc:Ignorable="d">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Grid.Row="0"
+            Margin="0,0,0,10"
+            HorizontalAlignment="Center"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="DodgerBlue"
+            Text="Choose a File to Extract" />
+
+        <Border
+            Grid.Row="1"
+            Padding="10"
+            Background="#F5F5F5"
+            BorderBrush="Gray"
+            BorderThickness="2"
+            CornerRadius="8">
+            <ListBox
+                x:Name="EntriesListBox"
+                Margin="0"
+                Background="White"
+                FontSize="14"
+                ItemsSource="{Binding Entries}"
+                SelectedItem="{Binding SelectedEntry, Mode=TwoWay}" />
+        </Border>
+
+        <StackPanel
+            Grid.Row="2"
+            Margin="0,10,0,0"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <Button
+                Width="80"
+                Height="30"
+                Background="DodgerBlue"
+                Click="OkButton_Click"
+                Content="OK"
+                Foreground="White"
+                IsDefault="True" />
+            <Button
+                Width="80"
+                Height="30"
+                Background="LightGray"
+                Click="CancelButton_Click"
+                Content="Cancel"
+                IsCancel="True" />
+        </StackPanel>
+    </Grid>
+</Window>
